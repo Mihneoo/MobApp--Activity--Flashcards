@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Flashcards.MVVM.ViewModels;
 
 namespace Flashcards.MVVM.Models
 {

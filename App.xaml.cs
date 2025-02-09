@@ -1,4 +1,7 @@
-﻿namespace Flashcards
+﻿using Flashcards.MVVM.Models;
+using Flashcards.MVVM.Views;
+
+namespace Flashcards
 {
     public partial class App : Application
     {
@@ -6,7 +9,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new FlashcardViews();
         }
     }
 }
