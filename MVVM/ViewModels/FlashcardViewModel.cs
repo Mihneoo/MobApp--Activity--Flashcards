@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 using Flashcards.MVVM.Models;
 using Flashcards.MVVM.Views;
@@ -14,6 +15,30 @@ namespace Flashcards.MVVM.ViewModels
 {
     public partial class FlashcardViewModel : INotifyPropertyChanged
     {
+        private string _question;
+        private string _answer;
+
+        public string Question 
+        { 
+            get => _question;
+            set
+            { 
+                _question = value;
+                OnPropertyChanged();
+            } 
+        }
+
+        public string Answer 
+        {
+            get => _answer;
+            set 
+            { 
+                _answer = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         private ObservableCollection<FlashCard> _flashcards;
         public ObservableCollection<FlashCard> Flashcards
         {
@@ -59,6 +84,8 @@ namespace Flashcards.MVVM.ViewModels
         }
 
         public string AnswerText => IsAnswerVisible ? CurrentFlashcard.Answer : "Tap to reveal the answer";
+
+        public ICommand AddFlashcardCommand { get; }
         public FlashcardViewModel()
         {
             Flashcards = new ObservableCollection<FlashCard>
@@ -72,10 +99,9 @@ namespace Flashcards.MVVM.ViewModels
                 new FlashCard("Way Lami ang?","ACT"),
                 
             };
-
+            AddFlashcardCommand = new Command(AddFlashcard);
             CurrentFlashcardIndex = 0;
             IsAnswerVisible = false;
-
         }
 
         public Command NextCommand => new Command(NextFlashcard);
@@ -83,6 +109,16 @@ namespace Flashcards.MVVM.ViewModels
         public Command BackCommand => new Command(BackFlashcard);
 
         public Command ToggleAnswerCommand => new Command(ToggleAnswer);
+
+        private void AddFlashcard()
+        {
+            if (!string.IsNullOrWhiteSpace(Question) && !string.IsNullOrWhiteSpace(Answer))
+            {
+                Flashcards.Add(new FlashCard(Question, Answer));
+                Question = string.Empty; // Clear the question entry
+                Answer = string.Empty;   // Clear the answer entry
+            }
+        }
 
         private void NextFlashcard()
         {

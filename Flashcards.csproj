@@ -63,6 +63,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="MVVM\Views\Creation_of_FlashcardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\FlashcardViews.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

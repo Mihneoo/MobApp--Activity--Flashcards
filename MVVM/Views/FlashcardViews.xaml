@@ -2,25 +2,32 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Flashcards.MVVM.Views.FlashcardViews"
-             Title="FlashcardViews">
-    
-    
+             Title=""
+             BackgroundColor="#1a1a1a">
+
+
     <VerticalStackLayout Spacing="25" Padding="30">
         <!--question frame-->
-        <Frame HeightRequest="200" >
+        <Frame HeightRequest="200" 
+               BackgroundColor="#ffc01d">
             <Label Text="{Binding CurrentFlashcard.Question}"
+                   TextColor="Black"
+                   FontSize="20"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"/>
 
         </Frame>
-        
+
         <!--answer frame-->
-        <Frame HeightRequest="200">
+        <Frame HeightRequest="200"
+               BackgroundColor="#ffc01d">
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding ToggleAnswerCommand}"/>
             </Frame.GestureRecognizers>
 
             <Label Text="{Binding AnswerText}"
+                   TextColor="Black"
+                   FontSize="20"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"/>
 
@@ -31,13 +38,28 @@
                                VerticalOptions="Center">
             <Button WidthRequest="100"
                     HeightRequest="50"
-                    Text="Back"
-                    Command="{Binding BackCommand}"/>
+                    Text="Previous"
+                    Command="{Binding BackCommand}"
+                    BackgroundColor="#85d5c8"
+                    TextColor="Black"
+                    FontSize="15"/>
             <Button WidthRequest="100"
                     HeightRequest="50"
                     Text="Next"
+                    BackgroundColor="#85d5c8"
+                    TextColor="Black"
+                    FontSize="15"
                     Command="{Binding NextCommand}"/>
 
         </HorizontalStackLayout>
+
+        <Button Text="Add a new Flashcard"
+                HeightRequest="50"
+                WidthRequest="300"
+                BackgroundColor="#85d5c8"
+                TextColor="Black"
+                FontSize="15"
+                Clicked="Add_Flashcard"/>
+
     </VerticalStackLayout>
 </ContentPage>

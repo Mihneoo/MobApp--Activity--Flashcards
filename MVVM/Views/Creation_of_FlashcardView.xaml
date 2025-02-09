@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Flashcards.MVVM.Views.Creation_of_FlashcardView"
+             Title="">
+    <Grid >
+        <!-- Frame as the Box -->
+        <Frame BackgroundColor="#85d5c8"
+               Padding="20"
+               CornerRadius="10"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               WidthRequest="320"
+               HasShadow="False">
+            <VerticalStackLayout Spacing="30">
+                <!-- Title Label -->
+                <Label Text="Add a new Flashcard!"
+                       FontSize="22"
+                       TextColor="Black"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center" />
+
+                <!-- Question Input -->
+                <HorizontalStackLayout Spacing="25"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center">
+                    <Label Text="Question:"
+                           FontSize="15"
+                           TextColor="Black"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                    <Editor Placeholder="Enter your question here..."
+                            Text="{Binding Question}"
+                            AutoSize="TextChanges"
+                            TextColor="Black"
+                            HeightRequest="40"
+                            WidthRequest="180"
+                            BackgroundColor="Transparent" />
+                </HorizontalStackLayout>
+
+                <!-- Answer Input -->
+                <HorizontalStackLayout Spacing="25"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center">
+                    <Label Text="Answer:"
+                           FontSize="15"
+                            TextColor="Black"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                    <Editor Placeholder="Enter your Answer here..."
+                            Text="{Binding Answer}"
+                            AutoSize="TextChanges"
+                            TextColor="Black"
+                            HeightRequest="40"
+                            WidthRequest="180"
+                            BackgroundColor="Transparent" />
+                </HorizontalStackLayout>
+
+                <!-- Add Button -->
+                <Button Text="Add"
+                        HeightRequest="40"
+                        BackgroundColor="#ffc01d"
+                        TextColor="Black"
+                        FontSize="18"
+                        WidthRequest="150"
+                        Command="{Binding AddFlashcardCommand}" />
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>
