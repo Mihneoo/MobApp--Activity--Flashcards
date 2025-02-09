@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Flashcards.MVVM.ViewModels;
+using Flashcards.MVVM.Views;
+using Microsoft.Extensions.Logging;
 
 namespace Flashcards
 {
@@ -18,6 +20,9 @@ namespace Flashcards
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<FlashcardViewModel>();
+            builder.Services.AddSingleton<FlashcardViews>();
+            builder.Services.AddTransient<Creation_of_FlashcardView>();
 
             return builder.Build();
         }
