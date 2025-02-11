@@ -52,14 +52,25 @@
                     Command="{Binding NextCommand}"/>
 
         </HorizontalStackLayout>
+         <HorizontalStackLayout Spacing="20"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center">
+            <Button Text="Add a new Flashcard"
+                    HeightRequest="50"
+                    WidthRequest="300"
+                    BackgroundColor="#85d5c8"
+                    TextColor="Black"
+                    FontSize="15"
+                    Clicked="Add_Flashcard"/>
+    
+            <Button Text="Remove a Flashcard"
+                    HeightRequest="50"
+                    WidthRequest="300"
+                    BackgroundColor="#85d5c8"
+                    TextColor="Black"
+                    FontSize="15"
+                    Clicked="Remove_Flashcard"/>
 
-        <Button Text="Add a new Flashcard"
-                HeightRequest="50"
-                WidthRequest="300"
-                BackgroundColor="#85d5c8"
-                TextColor="Black"
-                FontSize="15"
-                Clicked="Add_Flashcard"/>
-
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
